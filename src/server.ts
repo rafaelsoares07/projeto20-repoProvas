@@ -19,6 +19,8 @@ app.get("/teste",(req:Request , res:Response)=>{
     res.status(200).send("funfouuu")
 })
 
+
+
 const MODE = process.env.MODE
 const PORT = process.env.PORT || 4002
 
