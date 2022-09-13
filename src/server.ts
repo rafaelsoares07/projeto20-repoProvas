@@ -3,7 +3,7 @@ import cors from "cors"
 import dotenv from "dotenv"
 import chalk from "chalk";
 
-
+import {Request, Response } from "express"
 
 dotenv.config()
 
@@ -14,7 +14,7 @@ app.use(express.json())
 
 
 
-app.get("/teste",(req , res)=>{
+app.get("/teste",(req:Request , res:Response)=>{
 
     res.status(200).send("funfouuu")
 })
