@@ -13,6 +13,12 @@ app.use(cors())
 app.use(express.json())
 
 
+
+app.get("/teste",(req , res)=>{
+
+    res.status(200).send("funfouuu")
+})
+
 const MODE = process.env.MODE
 const PORT = process.env.PORT || 4002
 
