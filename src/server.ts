@@ -2,10 +2,13 @@ import express from "express";
 import cors from "cors"
 import dotenv from "dotenv"
 import chalk from "chalk";
-
-import {Request, Response } from "express"
-
+import "express-async-errors"
 dotenv.config()
+
+
+import indexRouter from "./routes/index"
+
+import errorHandleMiddleware from "./middlewares/errorHandleMiddleware"
 
 const app = express()
 
@@ -13,12 +16,8 @@ app.use(cors())
 app.use(express.json())
 
 
-
-app.get("/teste",(req:Request , res:Response)=>{
-
-    res.status(200).send("funfouuu")
-})
-
+app.use(indexRouter)
+app.use(errorHandleMiddleware)
 
 
 const MODE = process.env.MODE

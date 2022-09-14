@@ -6,4 +6,8 @@ export default function errorHandleMiddleware(err:any, req:Request, res:Response
         if(err.type==="bad_request"){
             return res.status(400).send(err.message)
         }
+
+        if(err.type==="conflit"){
+            return res.status(409).send(err.message)
+        }
 }
