@@ -1,9 +1,11 @@
 import joi from "joi"
 
-const authSchema = joi.object({
+const signUpSchema = joi.object({
     email:joi.string().email(),
-    password:joi.string().required(),
+    password:joi.string()
+    .pattern(/(?=^.{8,}$)((?=.*\d)(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/)
+    .required(),
     confirmPassword:joi.ref("password")
 })
 
-export default authSchema
+export default signUpSchema

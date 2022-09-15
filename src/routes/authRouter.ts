@@ -4,13 +4,20 @@ const router = Router()
 import * as authController from "../controllers/authController"
 
 import {validateSchemaMiddleware} from "../middlewares/validateSchemaMiddleware"
-import signupSchema from "../schemas/signupSchema"
-
+import signUpSchema from "../schemas/signupSchema"
+import signInSchema from "../schemas/signinSchema"
 
 router.post(
     "/signup",
-    validateSchemaMiddleware(signupSchema),
+    validateSchemaMiddleware(signUpSchema),
     authController.signUp 
 )
+
+router.post(
+    "/signin",
+    validateSchemaMiddleware(signInSchema),
+    authController.signIn 
+)
+
 
 export default router
