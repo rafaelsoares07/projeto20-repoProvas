@@ -2,8 +2,7 @@ import joi from "joi"
 
 const signInSchema = joi.object({
     email:joi.string().email(),
-    password:joi.string().required(),
-    confirmPassword:joi.ref("password")
+    password:joi.string().required()
 })
 
 export default signInSchema

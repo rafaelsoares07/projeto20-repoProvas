@@ -10,8 +10,6 @@ import { IUser, IUserCreateDB} from "../types/authTypes";
 
 export async function createNewUser(user:IUser) {
 
-    console.log(user.email)
-
     const userExist = await authRepository.findUserWithEmail(user.email)
     if(userExist){
         throw {type:"conflit", message:"Já existe um cadastro feito com esse emaild"}
@@ -47,13 +45,18 @@ export async function loginUser(user:IUserCreateDB) {
 
     const id = (userExist.id.toString())
     const secretJWT = process.env.JWT_SECRET
+    const token = jwt.sign(id,secretJWT)
 
+    const returnUser = {
+        userExist,
+        token
+    };
     
     
-    return generateToken(id,secretJWT)
+    return returnUser
 }
 
-function generateToken(id:string,secret:string){
-    const token = jwt.sign(id,secret)
-    return token
-}
+// function generateToken(id:string,secretJWT:string){
+//     const token = jwt.sign(id,secretJWT)
+//     return token
+// }

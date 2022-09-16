@@ -20,7 +20,6 @@ export default async function tokenValidation(req: Request, res:Response, next:N
             res.status(401).send('token invalido')
             return
         }
-        console.log(tokenValid)
         res.locals.token =  tokenValid
         next()
 
