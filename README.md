@@ -75,6 +75,12 @@ Dentro da pasta raiz do projeto, execute o seguinte comando para instalar as dep
 ```
 npm install
 ```
+Crie na pasta raiz um arquivo .env e configure as seguintes variáveis de ambiente:
+```
+DATABASE_URL="postgres://<seu_usuario>:<sua_senha>@localhost:5432/RepoProvas?schema=public"
+JWT_SECRET="sua_key_secret"
+PORT=4005
+```
 Por fim, você pode usar o script de dev para colocar no ar o servidor
 ```
 npm run dev
