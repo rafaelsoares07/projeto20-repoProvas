@@ -10,7 +10,7 @@ export async function createNewUser(test:any) {
 
     const teacherDicipline = await testRepository.findTeacherDiciplineById(test.teacherDisciplineId)
     if(!teacherDicipline){
-        throw{type:"bad_request", message:"Erro no id do body teachDicipline"}
+        throw{type:"bad_request", message:"Esse id de teachDicipline não existe"}
     }
 
     const createTeste = await testRepository.createTest(test)
