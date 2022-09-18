@@ -4,9 +4,8 @@ import chalk from "chalk"
 dotenv.config()
 
 const MODE = process.env.MODE
-const PORT = process.env.PORT || 4002
+const PORT = process.env.PORT || 5001
 
 app.listen(PORT,()=>{
-    console.log(chalk.magenta("MODO: " + MODE ))
     console.log(chalk.blue("Rodando na porta: " + PORT)) 
 })
