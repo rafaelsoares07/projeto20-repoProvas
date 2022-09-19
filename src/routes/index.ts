@@ -4,8 +4,6 @@ const router = Router()
 import authRouter from "../routes/authRouter"
 import testRouter from "../routes/testsRouter"
 
-import validateToken from "../middlewares/validateToken"
-
 router.use(authRouter)
 router.use(testRouter)
 
