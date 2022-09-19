@@ -33,3 +33,9 @@
     post + alugueis = criar um novo alugeusl
     delete + alugeuis = deletar alugeusl
     ...............
+
+// DICA
+
+sempre que no local tudo tiver funcionando e no deploy crashar, significa que tem algo faltando no deploy
+pode ser eero de banco mal configurado, falta das variaveis de ambiente no arquivo .env etc....
+verique sempre isso
