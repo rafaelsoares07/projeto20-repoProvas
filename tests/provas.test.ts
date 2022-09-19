@@ -93,9 +93,9 @@ describe("Testes da roda de cadastro de testes: /create/test", () => {
 
 });
 
-describe("Testes da roda de pegar provas /getAll", () => {
+describe("Testes da roda de pegar provas /test/by/disciplines", () => {
 
-    it("Deve retornar 200 caso a requisição da rota /getAll tenha sido um sucesso", async () => {
+    it("Deve retornar 200 caso a requisição da rota /test/by/disciplines tenha sido um sucesso", async () => {
         
         const user = await userSignUpFactorySucess()
         const userCadastrado = await supertest(app).post("/signup").send(user)
@@ -110,7 +110,7 @@ describe("Testes da roda de pegar provas /getAll", () => {
        
         const result = 
         await supertest(app).
-        get("/get/allTests").
+        get("/test/by/disciplines").
         set({ Authorization:`Bearer ${token}` }).send()
     
         expect(result.status).toEqual(200)
@@ -119,9 +119,9 @@ describe("Testes da roda de pegar provas /getAll", () => {
 
 });
 
-describe("Testes da roda de pegar provas /get/tests/teachers", () => {
+describe("Testes da roda de pegar provas /tests/by/teachers", () => {
 
-    it("Deve retornar 200 caso a requisição da rota /get/tests/teachers tenha sido um sucesso", async () => {
+    it("Deve retornar 200 caso a requisição da rota /tests/by/teachers tenha sido um sucesso", async () => {
         
         const user = await userSignUpFactorySucess()
         const userCadastrado = await supertest(app).post("/signup").send(user)
@@ -136,7 +136,7 @@ describe("Testes da roda de pegar provas /get/tests/teachers", () => {
        
         const result = 
         await supertest(app).
-        get("/get/tests/teachers").
+        get("/tests/by/teachers").
         set({ Authorization:`Bearer ${token}` }).send()
     
         expect(result.status).toEqual(200)

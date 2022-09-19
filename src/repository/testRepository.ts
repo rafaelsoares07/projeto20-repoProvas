@@ -1,5 +1,6 @@
 import prisma from "../database/database"
 
+import {ITestCreate} from "../types/testTypes"
 
 export async function findCategoryById(categoryId:number) {
     
@@ -9,7 +10,6 @@ export async function findCategoryById(categoryId:number) {
 
 }
 
-
 export async function findTeacherDiciplineById(teacherDisciplineId:number) {
 
     const result = await prisma.teachersDisciplines.findUnique({where:{id:teacherDisciplineId}})
@@ -18,7 +18,7 @@ export async function findTeacherDiciplineById(teacherDisciplineId:number) {
 
 }
 
-export async function createTest(test:any) {
+export async function createTest(test:ITestCreate) {
 
     const result = await prisma.tests.create({data:test})
 
@@ -26,7 +26,7 @@ export async function createTest(test:any) {
 
 }
 
-export async function getAll() {
+export async function getAllByDiscipline() {
     
     const result = await prisma.terms.findMany({
         select: {
@@ -59,8 +59,6 @@ export async function getAll() {
 
     return result
 }
-
-
 
 export async function getAllByTeacher() {
     

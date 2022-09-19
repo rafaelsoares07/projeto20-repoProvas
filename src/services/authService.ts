@@ -6,9 +6,9 @@ dotenv.config()
 
 import * as authRepository from "../repository/authRepository"
 
-import { IUser, IUserCreateDB} from "../types/authTypes";
+import { IUserCreate, IUserCreateDB, IUserLogin} from "../types/authTypes";
 
-export async function createNewUser(user:IUser) {
+export async function createNewUser(user:IUserCreate) {
 
     const userExist = await authRepository.findUserWithEmail(user.email)
     if(userExist){
@@ -56,7 +56,3 @@ export async function loginUser(user:IUserCreateDB) {
     return returnUser
 }
 
-// function generateToken(id:string,secretJWT:string){
-//     const token = jwt.sign(id,secretJWT)
-//     return token
-// }

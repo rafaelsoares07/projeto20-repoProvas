@@ -1,7 +1,9 @@
 
 import * as testRepository from "../repository/testRepository"
 
-export async function createNewUser(test:any) {
+import {ITestCreate} from "../types/testTypes"
+
+export async function createNewUser(test:ITestCreate) {
 
     const categoryExist = await testRepository.findCategoryById(test.categoryId)
     if(!categoryExist){
@@ -19,7 +21,7 @@ export async function createNewUser(test:any) {
 }
 
 export async function getAll() {
-    const resul = testRepository.getAll()
+    const resul = testRepository.getAllByDiscipline()
 
     return resul
 }

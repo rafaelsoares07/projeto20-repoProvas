@@ -17,13 +17,13 @@ router.post(
 )
 
 router.get(
-    "/get/allTests",
+    "/test/by/disciplines",
     tokenValidation,
     testController.get
 )
 
 router.get(
-    "/get/tests/teachers",
+    "/tests/by/teachers",
     tokenValidation,
     testController.getByTeacher
 )
