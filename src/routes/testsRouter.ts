@@ -13,6 +13,7 @@ import testSchema from "../schemas/testSchema"
 router.post(
     "/create/test",
     validateSchemaMiddleware(testSchema),
+    tokenValidation,
     testController.createTest
 )
 
