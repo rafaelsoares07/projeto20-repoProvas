@@ -1,0 +1,35 @@
+  
+  //funcao desnecessaria, jwt testando o proprio jwt, não faz sentido
+  it("Deve estar gerando um token valido, para que o usuário possa usá-lo", async()=>{
+
+        const user = await userSignUpFactorySucess()
+        const createUser = await supertest(app).post("/signup").send(user)
+
+        const userLogin ={
+            email:user.email,
+            password:user.password
+        }
+        const result = await supertest(app).post("/signin").send(userLogin)
+
+        let tokenIsValid = true
+
+        const {token} = result.body
+
+        const tokenValid = jwt.verify(token,process.env.JWT_SECRET)
+
+        if(!tokenValid){
+            tokenIsValid = false
+        }
+
+        expect(tokenIsValid).toEqual(true)
+
+    });
+
+
+//nomes de rotas -> criar padrão API'Rest
+    verbo + collection = ação
+
+    get + alugeis = pegar alugeis
+    post + alugueis = criar um novo alugeusl
+    delete + alugeuis = deletar alugeusl
+    ...............

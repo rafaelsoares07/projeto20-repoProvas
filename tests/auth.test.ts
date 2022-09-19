@@ -56,7 +56,7 @@ describe("Testes da roda de cadastro de usuários: /signup", () => {
 });
 
 
-describe("Testes da rot de login de usuários: /signin",()=>{
+describe("Testes da rota de login de usuários: /signin",()=>{
 
     it("Deve retornar 200 para login efetuado com sucesso e o body deve ser um objeto",async()=>{
 
@@ -72,31 +72,6 @@ describe("Testes da rot de login de usuários: /signin",()=>{
 
         expect(result.body).toBeInstanceOf(Object)
         expect(result.status).toEqual(200)
-    });
-
-    it("Deve estar gerando um token valido, para que o usuário possa usá-lo", async()=>{
-
-        const user = await userSignUpFactorySucess()
-        const createUser = await supertest(app).post("/signup").send(user)
-
-        const userLogin ={
-            email:user.email,
-            password:user.password
-        }
-        const result = await supertest(app).post("/signin").send(userLogin)
-
-        let tokenIsValid = true
-
-        const {token} = result.body
-
-        const tokenValid = jwt.verify(token,process.env.JWT_SECRET)
-
-        if(!tokenValid){
-            tokenIsValid = false
-        }
-
-        expect(tokenIsValid).toEqual(true)
-
     });
 
     it("Deve retornar 422 caso receba um body vazio ou com informações erradas",async()=>{

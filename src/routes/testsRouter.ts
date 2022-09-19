@@ -11,7 +11,7 @@ import tokenValidation from "../middlewares/validateToken"
 import testSchema from "../schemas/testSchema"
 
 router.post(
-    "/create/test",
+    "/test",
     validateSchemaMiddleware(testSchema),
     tokenValidation,
     testController.createTest
