@@ -51,7 +51,7 @@ POST /create/test
   }
 ```
 ```yml
-GET /get/allTests
+GET /test/by/disciplines
   - Rota para pegar todas as provas
   - headers: {
     "authorization":"Bearer <JWT_TOKEN>"
@@ -59,7 +59,7 @@ GET /get/allTests
   -body:{}
 ```
 ```yml
-GET /get/tests/teachers
+GET /tests/by/teachers
   - Rota para pegar provas por professor
   - headers: {
     "authorization":"Bearer <JWT_TOKEN>"
